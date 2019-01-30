@@ -6,11 +6,14 @@ import Friend from './Friend';
 class FriendsList extends Component {
 
     state = {
-        newfriend: {
-            name: '',
-            age: '',
-            email: ''
-        }
+        // newfriend: {
+        //     name: '',
+        //     age: '',
+        //     email: ''
+        // }
+        name: '',
+        age: '',
+        email: ''
     }
 
     componentDidMount(){
@@ -21,10 +24,15 @@ class FriendsList extends Component {
         this.setState({ [e.target.name]: e.target.value });
       };
 
+    saveFriend = e => {
+        e.preventDefault();
+        this.props.saveFriend(this.state);
+    }
+
     render(){
         return(
             <div>
-                <form className='add-friend' onSubmit={this.props.saveFriend}>
+                <form className='add-friend' onSubmit={this.saveFriend}>
                     <input
                         onChange={this.handleInputChange}
                         placeholder='Name'
