@@ -52,6 +52,41 @@ const reducer = (state = initialState, action) => {
                 savingFriends: false,
                 error: ''
             }
+        case DELETING:
+            return {
+                ...state,
+                deletingFriends: true,
+                error: ''
+            }
+        case DELETED:
+            return {
+                ...state,
+                friends: action.payload,
+                deletingFriends: false,
+                error: ''
+            }
+        case UPDATING:
+            return {
+                ...state,
+                updatingFriends: true,
+                error: ''
+            }
+        case UPDATED:
+            return {
+                ...state,
+                friends: action.payload,
+                updatingFriends: false,
+                error: ''
+            }
+        case FAIL:
+            return {
+                ...state,
+                fetchingFriends: false,
+                savingFriends: false,
+                updatingFriend: false,
+                deletingFriend: false,
+                error: action.payload
+            }
         default:
         return state;
     }

@@ -24,9 +24,9 @@ export const saveFriend = x => dispatch => {
         .catch(err => dispatch({type: FAIL, payload: err}));
 }
 
-export const updateFriend = x => dispatch => {
+export const updateFriend = (id, x) => dispatch => {
     dispatch({ type: UPDATING });
-    axios.put('http://localhost:5000/api/friends', x)
+    axios.put(`http://localhost:5000/api/friends/${id}`, x)
         .then(res => dispatch({type: UPDATED, payload: res.data}))
         .catch(err => dispatch({type: FAIL, payload: err}));
 }
