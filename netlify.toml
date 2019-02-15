@@ -1,0 +1,10 @@
+[build]
+    base = 'friends/'
+    command = 'yarn build'
+    publish = 'friends/build'
+
+
+[[redirects]]
+    from = '/*'   
+    to = '/index.html'   
+    status= 200
